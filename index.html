@@ -35,7 +35,7 @@
     }
 
     #Background {
-      background-image: url("images/bg-mobile.png");
+      background-image: url(images/bg-mobile.png);
       width: 100vw;
       height: 100vh;
       position: absolute;
@@ -94,6 +94,7 @@
       border-radius: 15px;
 
       width: 280px;
+      height: 100px;
 
       margin-top: 30px;
 
@@ -172,6 +173,66 @@
       color: var(--grayish-blue);
     }
 
+    #DisplayWrapper {
+      position: relative;
+    }
+
+    @media only screen and (min-width: 930px) {
+      #Background {
+        background-image: url(images/bg-desktop.png);
+        background-position: bottom;
+        background-size: contain;
+      }
+
+      #Wrapper {
+        flex-direction: row;
+
+      }
+
+      #DisplayWrapper {
+        height: 200px;
+        width:590px;
+      }
+
+      #Tools {
+        height: 140px;
+        padding:30px
+      }
+
+      #Display {
+        margin: 0px;
+        margin-left: 30px;
+        width: 500px;
+        padding: 30px;
+
+        position: absolute;
+        bottom: 0px;
+      }
+
+      #StorageLeft {
+        left: auto;
+        bottom: auto;
+        right: 30px;
+        top: -45px;
+      }
+
+      #StorageLeft:before {
+        content:"";
+        display: block;
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        bottom: -20px;
+        right: 0px;
+
+        border-top: 40px solid transparent;
+
+        border-right: 40px solid white;
+        border-bottom: 40px solid transparent;
+        z-index: 2;
+      }
+
+    }
   </style>
 </head>
 <body>
@@ -186,14 +247,16 @@
         <button class="button"><img src="images/icon-upload.svg" alt="upload" /></button>
       </div>
     </div>
-    <div id="Display">
-      <div id="StorageLeft">
-        <span class="large bold">185</span> <span class="caption bold">GB LEFT</span>
+    <div id="DisplayWrapper">
+      <div id="Display">
+        <div id="StorageLeft">
+          <span class="large bold">185</span> <span class="caption bold">GB LEFT</span>
+        </div>
+        <p>You’ve used <span class="bold">815 GB</span> of your storage</p>
+        <div id="Percent"><div id="Gradient"><div id="Ball"></div></div></div>
+        <span class="bold" id="Left">0 GB</span>
+        <span class="bold" id="Right">1000 GB</span>
       </div>
-      <p>You’ve used <span class="bold">815 GB</span> of your storage</p>
-      <div id="Percent"><div id="Gradient"><div id="Ball"></div></div></div>
-      <span class="bold" id="Left">0 GB</span>
-      <span class="bold" id="Right">1000 GB</span>
     </div>
   </div>
 
